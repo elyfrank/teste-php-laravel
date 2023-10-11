@@ -1,6 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\QueueController;
+use App\Http\Controllers\FileController;
 
 /*
 |--------------------------------------------------------------------------
@@ -14,5 +16,13 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
-});
+    return view('index');
+})->name('index');
+
+Route::get('/queue', function () {
+    return view('queue');
+})->name('queue');
+
+Route::post('/upload-file', [FileController::class, 'upload'])->name('upload-file');
+
+Route::post('/queue-work', [QueueController::class, 'work'])->name('queue-work');
