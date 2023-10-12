@@ -10,6 +10,8 @@ services:
             - .:/var/www/html
         ports:
             - "80:80"
+        networks:
+            - teste-php-laravel
         depends_on:
             - postgres
     postgres:
@@ -22,3 +24,8 @@ services:
             POSTGRES_USER: postgres
         ports:
             - "5432:5432"
+        networks:
+            - teste-php-laravel
+networks:
+    teste-php-laravel:
+        driver: bridge
