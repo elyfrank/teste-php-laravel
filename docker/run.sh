@@ -15,5 +15,7 @@ fi
 
 composer install
 
+php artisan migrate
+
 a2enmod rewrite
 apache2-foreground
